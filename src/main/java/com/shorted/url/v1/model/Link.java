@@ -35,7 +35,7 @@ public class Link implements Serializable {
     @Column(name = "url", nullable = false)
     private String url;
 
-    @Column(name = "code", nullable = false, unique = true)
+    @Column(name = "code", nullable = false, unique = true, length = 8)
     private String code;
 
     @Column(name = "created_at", columnDefinition = "TIMESTAMP")
