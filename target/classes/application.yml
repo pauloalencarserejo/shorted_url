@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: shorted-url
+
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/shorted
+    password: 123456
+    username: root
+    hikari:
+      max-lifetime: 600000
+    devtools:
+      restart:
+        enabled: true
+    jackson:
+      default-property-inclusion: NON_NULL
+    jpa:
+      hibernate:
+        ddl-auto: create
+      open-in-view: true
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL5Dialect
+          format_sql: true
+      show-sql: true
