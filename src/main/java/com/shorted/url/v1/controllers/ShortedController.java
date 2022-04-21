@@ -42,7 +42,7 @@ public class ShortedController {
         return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
     }
 
-    public void sendRedirectUrl(HttpServletResponse response, String newUrl) throws IOException {
+    private void sendRedirectUrl(HttpServletResponse response, String newUrl) throws IOException {
         response.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);
         response.setHeader("Location", newUrl);
         response.setHeader("Connection", "close");
