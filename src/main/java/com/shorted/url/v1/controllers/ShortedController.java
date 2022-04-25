@@ -28,8 +28,7 @@ public class ShortedController {
 
     @PostMapping
     public ResponseEntity<String> shortedUrl(@RequestBody UrlDto url, HttpServletRequest request) {
-        StringBuffer path = request.getRequestURL();
-        return new ResponseEntity<>(path + service.shortedUrl(url), HttpStatus.CREATED);
+        return new ResponseEntity<>(request.getRequestURL() + service.shortedUrl(url), HttpStatus.CREATED);
     }
 
     @GetMapping(value = "/{code}")
@@ -43,7 +42,7 @@ public class ShortedController {
     }
 
     private void sendRedirectUrl(HttpServletResponse response, String newUrl) throws IOException {
-        response.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);
+        response.setStatus(HttpServletResponse.SC_OK);
         response.setHeader("Location", newUrl);
         response.setHeader("Connection", "close");
     }
