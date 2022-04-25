@@ -29,7 +29,7 @@ public class ShortedServiceImpl implements ShortedService{
             Link save = repository.save(this.toLink(url.getUrl()));
             return save.getCode();
         } catch (Exception e) {
-            throw new BadRequestException("Canot generate shorted url");
+            throw new BadRequestException("Cannot generate shorted url");
         }
     }
 
